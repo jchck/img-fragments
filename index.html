@@ -8,7 +8,39 @@
   <script>document.documentElement.className = 'js';</script>
   <body>
 
+  <div style="max-width: 1200px; max-height: 600px" class="flex flex-wrap justify-center relative center">
+
+    <div id="frag-1" class="cover bg-center relative fragment-wrap" style="background-image: url('img/space-train.jpg')"></div>
+    <h2 class="title black">work of fiction</h2>
+    <p class="text"><span class="lh-copy bg-white">Dear Roberta Sparrow,<br />I have reached the end of your book and<br />there are so many things that I need to ask you. Sometimes I'm afraid of what you might tell me. Sometimes I'm afraid that you'll tell me that this is not a .</span></p>
+
+  </div>
+
 	<script src="https://unpkg.com/imagesloaded@4.1.1/imagesloaded.pkgd.min.js"></script>
 	<script src="dist/js/scripts.js"></script>
+
+  <script>
+    (function() {
+      imagesLoaded( document.querySelectorAll('.fragment-wrap'), { background: true }, function() {
+        document.body.classList.remove('loading');
+
+        new FragmentsFx(document.getElementById('frag-1'), {
+            fragments: 20,
+            boundaries: {x1: 50, x2: 300, y1: 0, y2: 0},
+            randomIntervals: {
+              top: {min: 0,max: 40},
+              left: {min: 0,max: 90},
+              dimension: {
+                width: {min: 10,max: 50, fixedHeight: 0.5},
+                height: {min: 5,max: 10, fixedWidth: 5}
+              }
+            },
+            parallax: true,
+            randomParallax: {min: 30, max: 300}
+          });
+
+      });
+    })();
+  </script>
   </body>
 </html>

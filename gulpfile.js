@@ -48,7 +48,7 @@ gulp.task('js', ['js-hint', 'js-concat']);
 /*
 	$ gulp server
 */
-gulp.task('server', ['js'], function(){
+gulp.task('server', ['js-concat'], function(){
 	browserSync.init({
 		server: "./"
 	});
