@@ -17,11 +17,13 @@
   },
   "homepage": "https://github.com/jchck/img-fragments#readme",
   "dependencies": {
+    "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.0.4",
     "gulp-sourcemaps": "^2.5.1",
     "gulp-uglify": "^2.1.2",
+    "gulp-watch": "^4.3.11",
     "jshint": "^2.9.4",
     "pump": "^1.0.2"
   }

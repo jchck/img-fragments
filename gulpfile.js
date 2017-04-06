@@ -1,8 +1,11 @@
 var gulp = require('gulp');
+var browserSync = require('browser-sync').create();
+var browserReload = browserSync.reload;
 var concat = require('gulp-concat');
 var jshint = require('gulp-jshint');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
+var watch = require('gulp-watch');
 var pump = require('pump');
 
 var input = {
@@ -41,3 +44,15 @@ gulp.task('js-hint', ['js-concat'], function() {
 	$ gulp js
 */
 gulp.task('js', ['js-hint', 'js-concat']);
+
+/*
+	$ gulp server
+*/
+gulp.task('server', ['js'], function(){
+	browserSync.init({
+		server: "./"
+	});
+
+	gulp.watch(input.js, ['jshint']);
+	gulp.watch('./*.html').on('change', browserReload);
+});
